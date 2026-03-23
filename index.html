@@ -1,43 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Max-Cut Benchmark Project</title>
   <style>
+    :root {
+      --dark-primary: #388E3C;
+      --primary: #4CAF50;
+      --light-primary: #C8E6C9;
+      --accent: #009688;
+      --title-text: #000000;
+      --text: #1f2a1f;
+      --muted: #4f6651;
+      --background: #f7fbf7;
+      --card: #ffffff;
+      --shadow: 0 10px 30px rgba(56, 142, 60, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      background: linear-gradient(180deg, var(--light-primary) 0%, var(--background) 35%);
+      color: var(--text);
       line-height: 1.6;
     }
-    h1 { margin-bottom: 10px; }
-    a {
-      display: inline-block;
-      margin: 8px 8px 8px 0;
-      padding: 10px 14px;
-      text-decoration: none;
-      border: 1px solid #333;
-      border-radius: 8px;
-      color: #000;
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
     }
-    a:hover { background: #6acc96; }
+
+    .hero {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      border-bottom: 8px solid var(--primary);
+      border-top: 8px solid var(--primary);
+      margin-bottom: 28px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--light-primary);
+      color: var(--dark-primary);
+      font-weight: bold;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: 2rem;
+      line-height: 1.2;
+      color: var(--title-text);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .resource-card {
+      display: block;
+      text-decoration: none;
+      background: #ffffff;
+      border: 2px solid var(--light-primary);
+      border-radius: 14px;
+      padding: 16px;
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(0, 150, 136, 0.12);
+    }
+
+    .resource-title {
+      display: block;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--dark-primary);
+    }
+
+    .resource-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .contact-box a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero,
+      .section,
+      .contact-box {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Solving optimisation problems comparing classical and quantum inspired methods </h1>
-  <p>
-    This project compares the performance of simulated annealing, simulated quantum annealing,
-    CP-SAT, and Gurobi on the Max-Cut problem using Erdős–Rényi Graphs.
-  </p>
+  <div class="container">
+    <section class="hero">
+      <div class="tag">Max-Cut Benchmark Project</div>
+      <h1>Solving Optimisation Problems Using Classical and Quantum-Inspired Methods</h1>
+      <p class="subtitle">
+        This project benchmarks Simulated Annealing (SA), Simulated Quantum Annealing (SQA),
+        CP-SAT, and Gurobi on the Max-Cut problem using Erdős–Rényi graphs, comparing
+        solution quality and runtime across a range of graph sizes and densities.
+      </p>
+    </section>
 
-  <h2>Resources</h2>
-  <a href="BE_Poster_Presentation-1.pdf">Poster PDF</a>
-  <a href="https://github.com/Lachlan-Walker/BE-Project">Github</a>
-  <a href="https://drive.google.com/drive/folders/1MkZ0Ln6r56AklXYCeoJmaJzyGcrYcpPf?usp=sharing">Dataset</a>
-  <a href="https://colab.research.google.com/github/Lachlan-Walker/BE-Project/blob/main/Max_Cut.ipynb">Colab Notebook</a>
-  <h2>Contact</h2>
-  <p>Lachlan Walker<br>Lachlan.Walker@ucdconnect.ie</p>
+    <section class="section">
+      <h2>Resources</h2>
+      <div class="resource-grid">
+        <a class="resource-card" href="BE_Poster_Presentation-1.pdf">
+          <span class="resource-title">Poster PDF</span>
+          <span class="resource-desc">View the full poster presentation.</span>
+        </a>
+
+        <a class="resource-card" href="https://github.com/Lachlan-Walker/BE-Project">
+          <span class="resource-title">GitHub Repository</span>
+          <span class="resource-desc">Source code, scripts, and project files.</span>
+        </a>
+
+        <a class="resource-card" href="https://drive.google.com/drive/folders/1MkZ0Ln6r56AklXYCeoJmaJzyGcrYcpPf?usp=sharing">
+          <span class="resource-title">Dataset</span>
+          <span class="resource-desc">Erdős–Rényi graph instances used in testing.</span>
+        </a>
+
+        <a class="resource-card" href="https://colab.research.google.com/github/Lachlan-Walker/BE-Project/blob/main/Max_Cut.ipynb">
+          <span class="resource-title">Colab Notebook</span>
+          <span class="resource-desc">Interactive notebook for running the project.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-box">
+      <h2>Contact</h2>
+      <p>
+        Lachlan Walker<br />
+        <a href="mailto:Lachlan.Walker@ucdconnect.ie">Lachlan.Walker@ucdconnect.ie</a>
+      </p>
+    </section>
+  </div>
 </body>
 </html>
