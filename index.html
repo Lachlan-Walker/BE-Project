@@ -72,6 +72,10 @@
       max-width: 720px;
     }
 
+    .subtitle + .subtitle {
+      margin-top: 12px;
+    }
+
     .section {
       background: var(--card);
       border-radius: var(--radius);
@@ -84,6 +88,19 @@
       margin-top: 0;
       margin-bottom: 16px;
       font-size: 1.25rem;
+    }
+
+    .findings {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .findings li {
+      margin-bottom: 8px;
+    }
+
+    .findings li:last-child {
+      margin-bottom: 0;
     }
 
     .resource-grid {
@@ -103,7 +120,8 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    .resource-card:hover {
+    .resource-card:hover,
+    .resource-card:focus-visible {
       transform: translateY(-3px);
       border-color: var(--accent);
       box-shadow: 0 8px 20px rgba(0, 150, 136, 0.12);
@@ -163,18 +181,37 @@
         padding: 20px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .resource-card {
+        transition: none;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <section class="hero">
       <div class="tag">Max-Cut Benchmark Project</div>
-      <h1>Solving Optimisation Problems Comparing Classical and Quantum-Inspired Methods</h1>
+      <h1>Solving Optimisation Problems Using Classical and Quantum-Inspired Methods</h1>
       <p class="subtitle">
         This project benchmarks Simulated Annealing (SA), Simulated Quantum Annealing (SQA),
         CP-SAT, and Gurobi on the Max-Cut problem using Erdős–Rényi graphs, comparing
         solution quality and runtime across a range of graph sizes and densities.
       </p>
+      <p class="subtitle">
+        Built with Python, Gurobi, OR-Tools and the D-Wave Ocean SDK.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key findings</h2>
+      <ul class="findings">
+        <li>Benchmarked 4 solvers on 500 graph instances, from 100 to 1,000,000 nodes.</li>
+        <li>Simulated annealing was the best all-round method across sizes and densities.</li>
+        <li>Exact solvers (Gurobi, CP-SAT) became impractical at scale.</li>
+        <li>Simulated quantum annealing had the flattest runtime at 1,000,000 nodes, at a cost in solution quality.</li>
+      </ul>
     </section>
 
     <section class="section">
@@ -211,7 +248,8 @@
       <h2>Contact</h2>
       <p>
         Lachlan Walker<br />
-        <a href="mailto:Lachlan.Walker.main@gmail.com">Lachlan.Walker.main@gmail.com</a>
+        <a href="mailto:Lachlan.Walker.main@gmail.com">Lachlan.Walker.main@gmail.com</a><br />
+        <a href="https://www.linkedin.com/in/lachlan-walker-0216293b0/">LinkedIn</a>
       </p>
     </section>
   </div>
